@@ -37,6 +37,9 @@ public class PessoaFisica extends Contribuinte{
 				valor = (this.getRenda() * 0.25);
 			}
 		}
+		if (valor < 0.0) {
+			valor = 0.0;
+		}
 		return valor;
 	}
 	
