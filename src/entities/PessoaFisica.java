@@ -24,19 +24,17 @@ public class PessoaFisica extends Contribuinte{
 	@Override
 	public double calcularImposto() {
 		double valor = 0.0;
-		if(this.getRenda() < 20000) {
-			if(this.getGastoSaude() > 0.0) {
-				valor = (this.getRenda() * 0.15) - (this.getGastoSaude() * 0.50);
-			}else {
-				valor = (this.getRenda() * 0.15);
-			}
+		
+		if(this.getRenda() < 20000.0) {
+			valor = (this.getRenda() * 0.15);
 		}else {
-			if(this.getGastoSaude() > 0.0) {
-				valor = (this.getRenda() * 0.25) - (this.getGastoSaude() * 0.50);
-			}else {
-				valor = (this.getRenda() * 0.25);
-			}
+			valor = (this.getRenda() * 0.25);
 		}
+		
+		if(this.getGastoSaude() > 0.0) {
+			valor -= (this.getGastoSaude() * 0.5 );
+		}
+		
 		if (valor < 0.0) {
 			valor = 0.0;
 		}
